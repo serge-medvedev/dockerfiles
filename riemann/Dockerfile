@@ -7,7 +7,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Riemann
-ENV RIEMANN_VERSION=0.2.14
+ENV RIEMANN_VERSION=0.3.0
 RUN wget https://github.com/riemann/riemann/releases/download/${RIEMANN_VERSION}/riemann-${RIEMANN_VERSION}.tar.bz2 -O - | tar -xj \
     && cp -lar riemann-${RIEMANN_VERSION}/. / \
     && sed -ie 's/127.0.0.1/0.0.0.0/' /etc/riemann.config
