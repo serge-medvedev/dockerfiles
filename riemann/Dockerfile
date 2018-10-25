@@ -17,5 +17,5 @@ RUN apt-get remove -y wget \
 
 EXPOSE 5555/tcp 5555/udp 5556/tcp
 
-CMD ["riemann", "/etc/riemann.config"]
-
+ENTRYPOINT ["riemann"]
+CMD ["/etc/riemann.config"]
