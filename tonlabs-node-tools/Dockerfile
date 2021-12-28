@@ -1,4 +1,4 @@
-FROM rust:1.57.0-buster
+FROM rust:1.57.0-bullseye
 
 ARG GITHUB_REPO=https://github.com/tonlabs/ton-labs-node-tools.git
 ARG GITHUB_COMMIT_ID=master
@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y libssl-dev clang \
     && git checkout ${GITHUB_COMMIT_ID} \
     && cargo build --release --bins
 
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
 RUN apt-get update && apt-get install -y \
         ca-certificates \
